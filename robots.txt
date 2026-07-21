@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://t5a57l.github.io/yuki-okada/sitemap.xml
