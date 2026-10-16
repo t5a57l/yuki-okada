@@ -1,0 +1,64 @@
+/* CV (PDF) スタイル。cv_ja.html / cv_en.html 共通。build_pdf.py で A4 PDF に変換する */
+:root {
+  --accent: #2f6fb3;
+  --ink: #1f2126;
+  --muted: #5b6068;
+  --line: #d6dae0;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: "Inter", "Noto Sans CJK JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  font-size: 9.4pt;
+  line-height: 1.38;
+  color: var(--ink);
+  font-feature-settings: "palt" 1;
+}
+a { color: inherit; text-decoration: none; }
+svg.ic { width: 9.5pt; height: 9.5pt; fill: none; stroke: var(--ink); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: 0 0 auto; }
+
+/* ヘッダ */
+h1 { font-size: 20pt; font-weight: 700; margin: 0 0 3pt; line-height: 1.2; letter-spacing: -0.01em; }
+h1 .alt { font-weight: 600; font-size: 15pt; margin-left: 8pt; color: var(--muted); }
+.idrow { display: flex; flex-wrap: wrap; gap: 3pt 14pt; font-size: 8.6pt; color: var(--muted); margin: 0 0 7pt; }
+.idrow a { display: inline-flex; align-items: center; gap: 4pt; }
+.idrow svg.ic { width: 9pt; height: 9pt; stroke: var(--muted); }
+.affil { font-size: 9.2pt; color: var(--muted); margin: 0; line-height: 1.4; }
+
+/* セクション */
+h2 {
+  color: var(--accent);
+  font-size: 12.5pt;
+  font-weight: 700;
+  margin: 17pt 0 6pt;
+  padding-bottom: 2pt;
+  border-bottom: 1.2pt solid var(--accent);
+  break-after: avoid;
+}
+.bio p { margin: 0; text-align: justify; }
+.bio p + p { margin-top: 4pt; }
+
+/* エントリ: 左に期間、右に肩書・機関・部局を行で積む（谷地江式） */
+.entry {
+  display: grid;
+  grid-template-columns: 27mm 1fr;
+  column-gap: 8mm;
+  margin: 0 0 7.5pt;
+  break-inside: avoid;
+}
+.entry .d { font-variant-numeric: tabular-nums; letter-spacing: .01em; white-space: nowrap; }
+.entry .c div { margin: 0; }
+.entry .c .t { font-weight: 700; font-size: 1.05em; }
+.entry .c .s { color: var(--muted); }
+html[lang="en"] .entry .c .s { font-style: italic; }
+.entry .c .m { color: var(--muted); }
+.entry .c .a { color: var(--ink); }
+.entry .c ul.n { margin: 1pt 0 0; padding-left: 11pt; }
+.entry .c ul.n li { margin: 0; }
+.entry .c .me { font-weight: 700; }
+
+
+/* 英語版は文字量が多いので少し詰める */
+html[lang="en"] body { font-size: 9.0pt; line-height: 1.34; }
+html[lang="en"] .entry { grid-template-columns: 27mm 1fr; margin-bottom: 6.5pt; }
+html[lang="en"] h2 { margin: 15pt 0 5pt; }
